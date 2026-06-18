@@ -5,9 +5,10 @@ from datetime import datetime
 
 today = datetime.today().strftime("%d %B %Y")
 # Gemini API Key
-API_KEY = "AQ.Ab8RN6JDEg5xzqHpr3DxgFBkb6SeX62twCNiqqMrz_3rRcjEOw"
-
-genai.configure(api_key=API_KEY)
+try:
+    API_KEY = st.secrets["GEMINI_API_KEY"]
+except:
+    API_KEY = "AQ.Ab8RN6JDEg5xzqHpr3DxgFBkb6SeX62twCNiqqMrz_3rRcjEOw"
 
 # Gemini Model
 model = genai.GenerativeModel(
