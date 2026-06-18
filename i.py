@@ -1,13 +1,20 @@
-from click import prompt
 import streamlit as st
 import google.generativeai as genai
 from datetime import datetime
 
 today = datetime.today().strftime("%d %B %Y")
 # Gemini API Key
-API_KEY ="AQ.Ab8RN6JfAZ5G0w0tNHoHGbH0fF2ltY0C6XW8ygrbI545ND3hyw"
-
+# Gemini API Key
+API_KEY = st.secrets["GEMINI_API_KEY"]
+st.write("Secret Loaded:", "GEMINI_API_KEY" in st.secrets)
 genai.configure(api_key=API_KEY)
+try:
+    API_KEY = st.secrets["GEMINI_API_KEY"]
+except:
+    API_KEY = "AQ.Ab8RN6JDEg5xzqHpr3DxgFBkb6SeX62twCNiqqMrz_3rRcjEOw"
+
+st.write("Key Loaded:", bool(API_KEY))
+st.write("Key Prefix:", API_KEY[:6])
 
 # Gemini Model
 model = genai.GenerativeModel(
@@ -117,4 +124,4 @@ Sincerely,
         )
 
     except Exception as e:
-        st.error(f"Error: {e}")
+        st.exception(e)
