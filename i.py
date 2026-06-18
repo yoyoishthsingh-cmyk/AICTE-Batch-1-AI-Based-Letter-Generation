@@ -5,7 +5,7 @@ from datetime import datetime
 
 today = datetime.today().strftime("%d %B %Y")
 # Gemini API Key
-API_KEY ="AQ.Ab8RN6JDEg5xzqHpr3DxgFBkb6SeX62twCNiqqMrz_3rRcjEOw"
+API_KEY ="AQ.Ab8RN6IpDFHzDPHczruvqRQJCsyTnvm_21n5qcx5fLaBIRoDQg"
 
 genai.configure(api_key=API_KEY)
 
