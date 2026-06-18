@@ -12,9 +12,7 @@ try:
     API_KEY = st.secrets["GEMINI_API_KEY"]
 except:
     API_KEY = "AQ.Ab8RN6JDEg5xzqHpr3DxgFBkb6SeX62twCNiqqMrz_3rRcjEOw"
-
-st.write("Key Loaded:", bool(API_KEY))
-st.write("Key Prefix:", API_KEY[:6])
+    
 
 # Gemini Model
 model = genai.GenerativeModel(
